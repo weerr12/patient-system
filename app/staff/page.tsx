@@ -11,7 +11,7 @@ async function getSessions(): Promise<PatientSession[]> {
   const rows = await prisma.patientSession.findMany({
     orderBy: { lastActivity: "desc" },
   });
-  return rows.map((row) => ({
+  return (rows as any[]).map((row) => ({
     sessionId: row.sessionId,
     status: row.status as PatientStatus,
     lastActivity: row.lastActivity.toISOString(),
