@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model PatientSession {
+  id                              String   @id @default(cuid())
+  sessionId                       String   @unique
+  status                          String   @default("idle")
+  firstName                       String?
+  middleName                      String?
+  lastName                        String?
+  dateOfBirth                     String?
+  gender                          String?
+  phoneNumber                     String?
+  email                           String?
+  address                         String?
+  preferredLanguage               String?
+  nationality                     String?
+  emergencyContactName            String?
+  emergencyContactRelationship    String?
+  religion                        String?
+  lastActivity                    DateTime @default(now())
+  createdAt                       DateTime @default(now())
+  updatedAt                       DateTime @updatedAt
+}

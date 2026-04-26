@@ -82,11 +82,8 @@ Create a `.env.local` file in the project root and add the following:
 DATABASE_URL="postgresql://username:password@localhost:5432/patientdb"
 
 # Pusher
-PUSHER_APP_ID="your_pusher_app_id"
-PUSHER_APP_KEY="your_pusher_app_key"
-PUSHER_APP_SECRET="your_pusher_app_secret"
-PUSHER_HOST="localhost"
-PUSHER_PORT=4443
-PUSHER_CLUSTER="mt1"
-PUSHER_SECURE=false
+PUSHER_APP_ID=""
+PUSHER_SECRET=""
+NEXT_PUBLIC_PUSHER_KEY=""
+NEXT_PUBLIC_PUSHER_CLUSTER=""
 ```
