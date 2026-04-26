@@ -1,17 +1,17 @@
 import prisma from "@/lib/prisma";
 import StaffView from "@/components/staff/StaffView";
 import { PatientSession, PatientStatus } from "@/lib/type";
+import type { PatientSession as PrismaPatientSession } from "@prisma/client";
 
-export const metadata = {
-  title: "Staff Dashboard",
-};
-
+export const metadata = { title: "Staff Dashboard" };
 export const dynamic = "force-dynamic";
+
 async function getSessions(): Promise<PatientSession[]> {
   const rows = await prisma.patientSession.findMany({
     orderBy: { lastActivity: "desc" },
   });
-  return rows.map((row: any) => ({
+
+  return rows.map((row: PrismaPatientSession) => ({
     sessionId: row.sessionId,
     status: row.status as PatientStatus,
     lastActivity: row.lastActivity.toISOString(),
@@ -33,6 +33,7 @@ async function getSessions(): Promise<PatientSession[]> {
     },
   }));
 }
+
 export default async function StaffPage() {
   const initialSessions = await getSessions();
   return <StaffView initialSessions={initialSessions} />;
