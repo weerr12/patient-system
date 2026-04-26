@@ -85,7 +85,7 @@ export default function PatientForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<PatientFormSchemaType>({
-    resolver: zodResolver(patientFormSchema),
+    resolver: zodResolver(patientFormSchema as any),
     mode: "onChange",
     defaultValues: EMPTY_FORM,
   });
