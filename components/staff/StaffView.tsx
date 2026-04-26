@@ -308,7 +308,7 @@ export default function StaffView({
         onOpenChange={(open) => !open && setSelectedSessionId(null)}
       >
         <SheetContent className="w-full sm:max-w-md overflow-y-auto bg-basic-base-white border-l border-basic-gray-30">
-          <SheetHeader className="mb-6">
+          <SheetHeader className="mb-6 px-4 sm:px-6 pt-6">
             <SheetTitle className="hl-20px-600 text-basic-base-black">
               Patient Details
             </SheetTitle>
@@ -318,7 +318,7 @@ export default function StaffView({
           </SheetHeader>
 
           {selectedSession && (
-            <div className="space-y-4">
+            <div className="space-y-4 px-4 pb-4 sm:px-6 sm:pb-6">
               <div className="flex items-center gap-2 mb-6">
                 <StatusBadge status={selectedSession.status} />
               </div>
