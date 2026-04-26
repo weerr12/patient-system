@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import StaffView from "@/components/staff/StaffView";
 import { PatientSession, PatientStatus } from "@/lib/type";
-import type { PatientSession as PrismaPatientSession } from "../../generated/prisma/client";
+import type { PatientSession as PrismaPatientSession } from "@prisma/client";
 
 export const metadata = { title: "Staff Dashboard" };
 export const dynamic = "force-dynamic";
